@@ -1,0 +1,32 @@
+<form name="taskForm" action="/add-item" method="post" onsubmit="return validateForm()" id="product-form">
+    <h3>Add a New Task</h3>
+    <div class="mb-3">
+        <label for="task" class="form-label">Task: </label>
+        <input type="text" class="form-control" name="task">
+        <div id="taskError" class="text-danger"></div>
+        <% if (errors.length) { %>
+            <% errors.forEach(function(error) { %>
+                <% if (error.param === 'task') { %>
+                    <div class="text-danger"><%= error.msg %></div>
+                <% } %>
+            <% }); %>
+        <% } %>
+    </div>
+    <div class="mb-3">
+        <label for="date" class="form-label">Complete By: </label>
+        <input type="date" class="form-control" name="date">
+        <div id="dateError" class="text-danger"></div>
+        <% if (errors.length) { %>
+            <% errors.forEach(function(error) { %>
+                <% if (error.param === 'date') { %>
+                    <div class="text-danger"><%= error.msg %></div>
+                <% } %>
+            <% }); %>
+        <% } %>
+    </div>
+    <div class="mb-3">
+        <label for="desc" class="form-label">Description: </label>
+        <textarea class="form-control" name="desc"></textarea>
+    </div>
+    <button type="submit">Add Task</button>
+</form>

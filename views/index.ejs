@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head.ejs") %>
+<body>
+    <header>
+        <!-- NAVBAR -->
+        <%- include("./partials/navbar.ejs") %>
+
+        <!-- HERO SECTION -->
+         <div class="herocenter">
+            <h1>Get Started</h1>
+            <p>Create a simple list of tasks and the dates you want to get them done by. To-Do! helps you stay organized with your daily or montly tasks. So what are you waiting for, add your first task now!</p>
+            <h3>List your first task now!</h3>
+            <a href="#product-form"><button>New Task!</button></a>
+         </div>
+    </header>
+
+    <main>
+        <div class="displayzone">
+                <ul style="list-style: none;">
+                    <% items.forEach(item => { %>
+                        <li><%- include("./partials/card.ejs", { item: item }) %></li>
+                    <% }); %>
+                </ul>
+        </div>
+        <div class="prod-form">
+            <%- include("./partials/form.ejs") %>
+        </div>
+    </main>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="public/dynamic.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head.ejs") %>
+<body>
+    <header>
+        <!-- NAVBAR -->
+        <%- include("./partials/navbar.ejs") %>
+
+        <!-- HERO SECTION -->
+         <div class="herocenter tasks-page">
+            <h1>Completed Tasks</h1>
+            <p>Here are all the tasks you have completed.</p>
+         </div>
+    </header>
+
+    <main>
+        <div class="displayzone tasks-page completed">
+                <ul style="list-style: none;">
+                    <% completedItems.forEach(item => { %>
+                        <li>
+                            <%- include("./partials/card.ejs", { item: item }) %>
+                        </li>
+                    <% }); %>
+                </ul>
+        </div>
+    </main>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="/public/dynamic.js"></script>
+</body>
+</html>
